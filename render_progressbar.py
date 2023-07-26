@@ -1,4 +1,12 @@
-def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░'):
+def render_progressbar(
+        total,
+        iteration, prefix='',
+        suffix='',
+        length=30,
+        fill='█',
+        zfill='░',
+        ):
+
     iteration = min(total, iteration)
     percent = "{0:.1f}"
     percent = percent.format(100 * (iteration / float(total)))
@@ -8,4 +16,10 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
 
 
 if __name__ == '__main__':
-    print(render_progressbar(20, 3, prefix='prefix', suffix='suffix', length=100))
+    print(render_progressbar(
+        20,
+        3,
+        prefix='prefix',
+        suffix='suffix',
+        length=100,
+        ))
