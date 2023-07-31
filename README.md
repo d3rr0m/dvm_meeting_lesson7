@@ -1,1 +1,1 @@
-# dvmn.org meeting python lesson77
+# dvmn.org meeting python lesson7
