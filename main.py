@@ -11,7 +11,13 @@ def set_timer(chat_id, request, bot):
     timer_secs = parse(request)
 
     if timer_secs is not None:
-        message_id = bot.send_message(chat_id, 'Обратный отсчет стартует')
+        progress_bar = render_progressbar(
+        timer_secs,
+        0,
+        length=20,
+        )
+        message_id = bot.send_message(chat_id, f'Осталось {timer_secs} секунд(ы)\n{progress_bar}')
+        
         bot.create_countdown(
             timer_secs,
             timer_notify_progress,
@@ -20,6 +26,7 @@ def set_timer(chat_id, request, bot):
             total_secs=timer_secs,
             bot=bot,
             )
+
         bot.create_timer(
             timer_secs,
             timer_notify,
